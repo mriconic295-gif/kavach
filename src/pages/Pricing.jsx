@@ -1,0 +1,12 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const launch = [
+["Basic Website Security Check","₹1,699"],["Standard Website Security Check","₹2,699"],["Basic Wi-Fi Security Check","₹1,699"],["Business Wi-Fi Security Check","₹2,699"],["Website + Wi-Fi Combo","₹3,199"],["Basic Data Security Check","₹1,699"],["Data + Access Security Check","₹2,699"],["Cybersecurity Awareness Session","₹1,199"],["Employee Cybersecurity Training","₹1,699"],["Phishing Awareness Session","₹1,699"],["WAF Setup Assistance","₹2,199"],["Basic Website Hardening","₹2,199"],["Security Incident Initial Check","₹1,699"],["Basic Incident Assistance","₹2,699+"],["Small Office Network Security Check","₹3,199"],["Complete Basic Security Assessment","₹4,699"]
+];
+const annual = [["Kavach Basic","₹5,699/year"],["Kavach Business","₹8,699/year"],["Kavach Complete","₹12,699/year"]];
+const institute = [["Cyber Awareness Session","₹1,199"],["Basic Institute Security Check","₹2,699"],["Website + Wi-Fi Check","₹3,699"],["Annual Institute Security Support","₹8,699/year"]];
+
+function PriceGroup({title,items}) { return <div className="price-group"><div className="price-group-head"><span>{title}</span><small>KAVACH PRICING</small></div><div className="price-grid">{items.map(([name,price],i)=><Link className="price-card" key={name} to={`/request?service=${encodeURIComponent(name)}`}><span>{String(i+1).padStart(2,"0")}</span><h3>{name}</h3><strong>{price}</strong><p>Authorized scope · clear report</p><b className="price-action">Request ↗</b></Link>)}</div></div> }
+
+export default function Pricing() { return <section className="page-pad inner-page"><div className="page-title"><span className="section-no">06 / PRICING</span><h1>Clear pricing.<br /><em>No surprises.</em></h1><p>Low-cost launch pricing designed to make practical cybersecurity accessible.</p></div><PriceGroup title="LOW-COST LAUNCH PRICING" items={launch}/><PriceGroup title="ANNUAL PLANS" items={annual}/><PriceGroup title="SCHOOL / COLLEGE / INSTITUTE" items={institute}/><div className="price-note"><p>Final scope and price can vary when an engagement requires a custom assessment or additional assistance.</p><Link className="btn btn-dark" to="/contact">Request Service Scope ↗</Link></div></section> }
